@@ -19,7 +19,9 @@ body {
     background-color: var(--color-bg);
     line-height: 1.6;
 }
-
+.no-scroll {
+    overflow: hidden;
+}
 
 /* Header */
 .header {
@@ -37,6 +39,7 @@ body {
     justify-content: space-between;
     align-items: center;
     position: relative;
+    padding: 0 1rem;
 }
 
 /* Mobile Menu Icon */
@@ -44,33 +47,62 @@ body {
     display: none;
     cursor: pointer;
     font-size: 1.5rem;
+    z-index: 1001;
+}
+
+.navbar ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-primary);
+    padding: 1rem 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar ul.active {
+    display: flex;
+}
+
+.navbar ul li {
+    text-align: center;
+    padding: 0.75rem 0;
+}
+
+.navbar ul li a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: var(--color-text);
+    transition: all 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 @media (max-width: 768px) {
     .header-container {
         padding: 0.5rem 1rem;
-    }
-    
-    .navbar ul {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: var(--color-primary);
-        padding: 1rem 0;
-    }
-    
-    .navbar ul.active {
-        display: flex;
+        position: relative;
     }
     
     .menu-icon {
         display: block;
     }
+    
+    .navbar ul {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+    }
+    
+    .navbar ul.active {
+        max-height: 500px;
+    }
 }
-
 
 .logo img {
     height: 60px;
@@ -116,8 +148,9 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
+    background-repeat: no-repeat;
     opacity: 0;
     transition: opacity 1s ease;
 }
@@ -158,8 +191,13 @@ body {
     border: none;
     color: white;
     padding: 1rem;
+    min-width: 44px;
+    min-height: 44px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .carousel-control:hover {
@@ -195,36 +233,32 @@ body {
 
 .productos-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 0 1rem;
 }
 
 @media (max-width: 768px) {
     .productos-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         gap: 1rem;
-    }
-    
-    .producto {
-        padding: 1rem;
-    }
-    
-    .producto img {
-        height: 200px;
     }
 }
 
-
 .producto {
     background-color: var(--color-card);
-    padding: 1.5rem;
+    padding: 1.2rem;
     border-radius: 0.5rem;
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .producto:hover {
     transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .producto img {
@@ -247,13 +281,20 @@ body {
 .whatsapp-btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
     background-color: var(--color-accent);
     color: white;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1.25rem;
+    min-width: 44px;
+    min-height: 44px;
     border-radius: 0.25rem;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-btn i {
+    margin: 0 auto;
 }
 
 .whatsapp-btn:hover {
@@ -443,7 +484,6 @@ body {
         align-items: center;
         justify-content: space-between;
     }
-
 
     .hero-section {
         height: 300px;

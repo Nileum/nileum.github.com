@@ -10,21 +10,33 @@ const reseñas = [
     // Más reseñas...
 ];
 
+// Mobile Menu Functionality
+const menuIcon = document.querySelector('.menu-icon');
+const navbar = document.querySelector('.navbar ul');
+const body = document.querySelector('body');
 
-function generarReseñas() {
-    const reseñasContainer = document.querySelector('.reseñas-container');
-    reseñasContainer.innerHTML = reseñas.map(reseña => `
-        <div class="reseña">
-            <div class="reseña-header">
-                <div class="reseña-autor">${reseña.autor}</div>
-                <div class="reseña-calificacion">${'★'.repeat(reseña.calificacion)}${'☆'.repeat(5 - reseña.calificacion)}</div>
-            </div>
-            <div class="reseña-producto">${reseña.producto}</div>
-            <div class="reseña-texto">${reseña.texto}</div>
-        </div>
-    `).join('');
-}
+// Toggle menu on icon click
+menuIcon.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navbar.classList.toggle('active');
+    body.classList.toggle('no-scroll');
+});
 
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!navbar.contains(e.target) && !menuIcon.contains(e.target)) {
+        navbar.classList.remove('active');
+        body.classList.remove('no-scroll');
+    }
+});
+
+// Close menu when resizing to desktop
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+        navbar.classList.remove('active');
+        body.classList.remove('no-scroll');
+    }
+});
 
 // Funcionalidad del carrusel
 let currentSlide = 0;
@@ -83,23 +95,13 @@ function filtrarProductos(categoria) {
     });
 }
 
-// Mobile Menu Functionality
-const menuIcon = document.querySelector('.menu-icon');
-const navbar = document.querySelector('.navbar ul');
-
-menuIcon.addEventListener('click', () => {
-    navbar.classList.toggle('active');
-});
-
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!menuIcon.contains(e.target) && !navbar.contains(e.target)) {
-        navbar.classList.remove('active');
-    }
-});
-
-// Event Listeners
+// Initialize on DOM load
 document.addEventListener('DOMContentLoaded', () => {
+    // Ensure menu is hidden on load for mobile
+    if (window.innerWidth <= 768) {
+        navbar.classList.remove('active');
+        body.classList.remove('no-scroll');
+    }
 
     generarReseñas();
 
