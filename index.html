@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ropa Alternativa - Tienda Online</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="Logo.png" alt="Logo Ropa Alternativa">
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#catalogo">Catálogo</a></li>
+                    <li><a href="#ofertas">Ofertas</a></li>
+                    <li><a href="#reseñas">Reseñas</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección Inicio -->
+    <section id="inicio" class="hero-section">
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" style="background-image: url('carrusel1.jpg');">
+                    
+                </div>
+                <div class="carousel-item" style="background-image: url('Carrusel\ img2.jpg');">
+                    
+                </div>
+                <div class="carousel-item" style="background-image: url('Carrusel\ img3.jpg');">
+                    
+                </div>
+                <div class="carousel-item" style="background-image: url('Carrusel\ img4.jpg');">
+                    
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button class="carousel-control prev">&#10094;</button>
+                <button class="carousel-control next">&#10095;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Catálogo -->
+    <section id="catalogo" class="catalogo-section">
+        <h2>Nuestro Catálogo</h2>
+        <div class="filtros">
+            <button class="filtro-btn active" data-categoria="todos">Todos</button>
+            <button class="filtro-btn" data-categoria="ropa">Ropa</button>
+            <button class="filtro-btn" data-categoria="calzado">Calzado</button>
+            <button class="filtro-btn" data-categoria="accesorios">Accesorios</button>
+        </div>
+        <div class="productos-grid">
+            <div class="producto" data-categoria="ropa">
+                <img src="https://via.placeholder.com/200" alt="Camiseta Gótica">
+                <h3>Camiseta Gótica</h3>
+                <p>Camiseta de algodón con estampado gótico.</p>
+                <p><strong>Precio:</strong> $25.00</p>
+                <a class="whatsapp-btn" href="https://wa.me/+5355560109?text=Estoy%20interesado%20en%20el%20producto%20Camiseta%20Gótica" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Contactar
+                </a>
+            </div>
+            <div class="producto" data-categoria="calzado">
+                <img src="https://via.placeholder.com/200" alt="Botas Punk">
+                <h3>Botas Punk</h3>
+                <p>Botas altas con detalles metálicos.</p>
+                <p><strong>Precio:</strong> $90.00</p>
+                <a class="whatsapp-btn" href="https://wa.me/+5355560109?text=Estoy%20interesado%20en%20el%20producto%20Botas%20Punk" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Contactar
+                </a>
+            </div>
+            <div class="producto" data-categoria="accesorios">
+                <img src="https://via.placeholder.com/200" alt="Collar de Púas">
+                <h3>Collar de Púas</h3>
+                <p>Collar de cuero con púas metálicas.</p>
+                <p><strong>Precio:</strong> $25.00</p>
+                <a class="whatsapp-btn" href="https://wa.me/+5355560109?text=Estoy%20interesado%20en%20el%20producto%20Collar%20de%20Púas" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Contactar
+                </a>
+            </div>
+            <div class="producto" data-categoria="ropa">
+                <img src="https://via.placeholder.com/200" alt="Chaqueta de Cuero">
+                <h3>Chaqueta de Cuero</h3>
+                <p>Chaqueta de cuero genuino con cierre de cremallera.</p>
+                <p><strong>Precio:</strong> $120.00</p>
+                <a class="whatsapp-btn" href="https://wa.me/+5355560109?text=Estoy%20interesado%20en%20el%20producto%20Chaqueta%20de%20Cuero" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Contactar
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Sección Ofertas -->
+    <section id="ofertas" class="ofertas-section">
+        <h2>Ofertas Especiales</h2>
+        <div class="ofertas-grid">
+            <div class="oferta">
+                <div class="discount-badge">50% OFF</div>
+                <img src="https://via.placeholder.com/200" alt="Bufanda Alternativa">
+                <h3>Bufanda Alternativa</h3>
+                <p>Bufanda de lana con diseño alternativo.</p>
+                <p><strong>Precio:</strong> <span class="old-price">$30.00</span> $15.00</p>
+                <a class="whatsapp-btn" href="https://wa.me/+5355560109?text=Estoy%20interesado%20en%20la%20oferta%20Bufanda%20Alternativa" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Contactar
+                </a>
+            </div>
+            <div class="oferta">
+                <div class="discount-badge">30% OFF</div>
+                <img src="https://via.placeholder.com/200" alt="Chaqueta de Cuero">
+                <h3>Chaqueta de Cuero</h3>
+                <p>Chaqueta de cuero genuino con cierre de cremallera.</p>
+                <p><strong>Precio:</strong> <span class="old-price">$120.00</span> $84.00</p>
+                <a class="whatsapp-btn" href="https://wa.me/+5355560109?text=Estoy%20interesado%20en%20la%20oferta%20Chaqueta%20de%20Cuero" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Contactar
+                </a>
+            </div>
+            <div class="oferta">
+                <div class="discount-badge">40% OFF</div>
+                <img src="https://via.placeholder.com/200" alt="Botas Punk">
+                <h3>Botas Punk</h3>
+                <p>Botas altas con detalles metálicos.</p>
+                <p><strong>Precio:</strong> <span class="old-price">$90.00</span> $54.00</p>
+                <a class="whatsapp-btn" href="https://wa.me/+5355560109?text=Estoy%20interesado%20en%20la%20oferta%20Botas%20Punk" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Contactar
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Sección Reseñas -->
+    <section id="reseñas" class="reseñas-section">
+        <h2>Lo que dicen nuestros clientes</h2>
+        <div class="reseñas-container">
+            <!-- Reseñas serán generadas dinámicamente con JavaScript -->
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="contacto-section">
+        <h2>Contacto</h2>
+        <div class="contacto-container">
+            <div class="contacto-info">
+                <h3>Información de Contacto</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Calle Falsa 123, Ciudad</p>
+                <p><i class="fas fa-phone"></i> +123 456 789</p>
+                <p><i class="fas fa-envelope"></i> info@alternativa.com</p>
+                <div class="redes-sociales">
+                    <a href="#" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="social-btn instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <form class="contacto-form">
+                <input type="text" placeholder="Nombre" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Mensaje" required></textarea>
+                <button type="submit">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2023 Ropa Alternativa. Todos los derechos reservados.</p>
+            <div class="footer-links">
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Términos y Condiciones</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
