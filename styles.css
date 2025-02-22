@@ -219,36 +219,38 @@ body {
 
 @media (max-width: 768px) {
     .catalogo-section {
-        padding: 4rem 1rem; /* Mantiene separación en los lados */
+        padding: 4rem 1rem; /* Agrega espacio lateral para evitar recortes */
     }
 
     .productos-grid {
         display: grid;
-        grid-template-columns: repeat(3, minmax(100px, 1fr)); /* Ajusta tamaño de columnas dinámicamente */
-        gap: 0.5rem; /* Reduce el espacio entre tarjetas para evitar solapamiento */
-        padding-left: 1rem;
+        grid-template-columns: repeat(3, minmax(110px, 1fr)); /* Asegura que las tarjetas sean más pequeñas */
+        gap: 0.5rem;
+        padding: 0 1rem; /* Agrega espacio a los lados */
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
-        align-items: stretch; /* Asegura que todas las tarjetas tengan la misma altura */
+        align-items: stretch; /* Asegura que todas las tarjetas tengan el mismo alto */
     }
 
     .producto {
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
-        padding: 0.8rem; /* Reduce el padding interno para ahorrar espacio */
-        font-size: 0.9rem; /* Reduce el tamaño del texto para que todo encaje */
+        padding: 0.5rem; /* Reduce el espacio interno de cada tarjeta */
+        font-size: 0.8rem; /* Reduce el tamaño del texto */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .producto img {
         width: 100%;
-        height: auto; /* Mantiene la proporción sin forzar un tamaño fijo */
-        max-height: 120px; /* Evita imágenes demasiado grandes que causen desajustes */
-        object-fit: cover; /* Asegura que las imágenes se recorten de manera uniforme */
+        height: auto;
+        max-height: 100px; /* Evita que las imágenes sean demasiado grandes */
+        object-fit: cover;
         border-radius: 0.25rem;
     }
-}
 
 
 .producto:hover {
@@ -263,7 +265,7 @@ body {
 .producto p {
     margin-bottom: 1rem;
 }
-
+}
 .whatsapp-btn {
     display: inline-flex;
     align-items: center;
@@ -274,13 +276,26 @@ body {
     padding: 0.5rem 1rem;
     border-radius: 0.25rem;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
     min-width: 120px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
 
 .whatsapp-btn:hover {
     background-color: #128C7E;
+    transform: scale(1.05);
+}
+
+.whatsapp-btn:active {
+    transform: scale(0.95);
+}
+
+.whatsapp-btn i {
+    font-size: 1.2rem;
 }
 
 /* Sección Ofertas */
