@@ -7,6 +7,7 @@
     --color-bg: #121212;
     --color-card: #1e1e1e;
     --color-border: #333333;
+    --color-carruselbg: #ffffff
 }
 
 html {
@@ -112,7 +113,7 @@ body {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: var(--color-text);
+    background-color: var(--color-carruselbg);
     opacity: 0;
     transition: opacity 1s ease;
 }
