@@ -42,11 +42,38 @@ body {
     height: 60px;
 }
 
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
 .navbar ul {
     list-style: none;
     display: flex;
     gap: 2rem;
 }
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+    }
+    
+    .navbar ul.active {
+        display: flex;
+    }
+}
+
 
 .navbar a {
     color: var(--color-text);
@@ -82,11 +109,14 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--color-text);
     opacity: 0;
     transition: opacity 1s ease;
 }
+
 
 .carousel-item.active {
     opacity: 1;
@@ -135,7 +165,10 @@ body {
 /* Sección Catálogo */
 .catalogo-section {
     padding: 4rem 2rem;
+    margin: 0 auto;
+    max-width: 1400px;
 }
+
 
 .filtros {
     display: flex;
@@ -164,6 +197,13 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
+
+@media (max-width: 480px) {
+    .productos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 
 .producto {
     background-color: var(--color-card);
@@ -197,6 +237,7 @@ body {
 .whatsapp-btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
     background-color: var(--color-accent);
     color: white;
@@ -204,7 +245,9 @@ body {
     border-radius: 0.25rem;
     text-decoration: none;
     transition: background-color 0.3s ease;
+    min-width: 120px;
 }
+
 
 .whatsapp-btn:hover {
     background-color: #128C7E;

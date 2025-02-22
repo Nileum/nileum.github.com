@@ -87,9 +87,18 @@ function filtrarProductos(categoria) {
 document.addEventListener('DOMContentLoaded', () => {
     generarReseñas();
 
+    // Configurar menú móvil
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.navbar ul');
+    
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+
     // Configurar carrusel
     const nextButton = document.querySelector('.carousel-control.next');
     const prevButton = document.querySelector('.carousel-control.prev');
+
     nextButton.addEventListener('click', () => {
         stopAutoSlide();
         nextSlide();
@@ -115,4 +124,21 @@ document.addEventListener('DOMContentLoaded', () => {
     startAutoSlide();
     // Mostrar primer slide
     showSlide(0);
+
+    // Cerrar menú al hacer clic fuera en móviles
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768 && 
+            !e.target.closest('.navbar') && 
+            !e.target.closest('.menu-toggle')) {
+            navMenu.classList.remove('active');
+        }
+    });
+
+    // Ajustar menú al cambiar tamaño de ventana
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            navMenu.classList.remove('active');
+        }
+    });
+
 });
