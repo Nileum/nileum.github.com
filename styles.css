@@ -46,9 +46,28 @@ body {
 /* Mobile Menu Toggle */
 .menu-toggle {
     display: none;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: var(--color-primary);
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 2rem;
     cursor: pointer;
-    font-size: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
+
+.menu-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.menu-toggle:active {
+    transform: scale(0.95);
+}
+
 
 .navbar ul {
     list-style: none;
@@ -170,7 +189,6 @@ body {
     max-width: 1400px;
 }
 
-
 .filtros {
     display: flex;
     justify-content: center;
@@ -196,23 +214,32 @@ body {
 .productos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    gap: 1rem;
 }
 
-@media (max-width: 480px) {
+/* 🔽 CORRECCIÓN: Ajustes para centrar correctamente las tarjetas en móviles 🔽 */
+@media (max-width: 768px) {
+    .catalogo-section {
+        padding: 4rem 0; /* Eliminamos padding lateral para evitar desplazamiento */
+    }
+
     .productos-grid {
-        grid-template-columns: repeat(2, 1fr);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin: 0 auto; /* Asegura que la grilla esté centrada */
+        width: 100%;
+        max-width: 95%; /* Limita el ancho para evitar desplazamientos */
+        box-sizing: border-box; /* Evita que padding o bordes desplacen contenido */
+        justify-content: center; /* Alinea el grid en el centro */
+    }
+
+    .producto {
+        width: 100%; /* Evita que las tarjetas sean más anchas de lo permitido */
+        max-width: 90%; /* Se asegura de que no ocupen más espacio del necesario */
     }
 }
 
-
-.producto {
-    background-color: var(--color-card);
-    padding: 1.5rem;
-    border-radius: 0.5rem;
-    text-align: center;
-    transition: transform 0.3s ease;
-}
 
 .producto:hover {
     transform: translateY(-5px);
