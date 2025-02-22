@@ -217,42 +217,42 @@ body {
     gap: 1rem;
 }
 
-/* 🔽 CORRECCIÓN: Ajustes para centrar correctamente las tarjetas en móviles y evitar recortes 🔽 */
 @media (max-width: 768px) {
     .catalogo-section {
-        padding: 4rem 1rem; /* Se agrega un padding a la izquierda para evitar recorte */
+        padding: 4rem 1rem; /* Mantiene separación en los lados */
     }
 
     .productos-grid {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr)); /* Distribuye uniformemente las 3 columnas */
-        gap: 1rem;
-        padding-left: 1rem; /* Agrega separación a la izquierda */
+        grid-template-columns: repeat(3, minmax(100px, 1fr)); /* Ajusta tamaño de columnas dinámicamente */
+        gap: 0.5rem; /* Reduce el espacio entre tarjetas para evitar solapamiento */
+        padding-left: 1rem;
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
-        align-items: stretch; /* Asegura que todas las tarjetas sean del mismo alto */
+        align-items: stretch; /* Asegura que todas las tarjetas tengan la misma altura */
     }
 
     .producto {
         width: 100%;
-        max-width: 100%; /* Evita que se salgan del contenedor */
+        max-width: 100%;
         box-sizing: border-box;
+        padding: 0.8rem; /* Reduce el padding interno para ahorrar espacio */
+        font-size: 0.9rem; /* Reduce el tamaño del texto para que todo encaje */
+    }
+
+    .producto img {
+        width: 100%;
+        height: auto; /* Mantiene la proporción sin forzar un tamaño fijo */
+        max-height: 120px; /* Evita imágenes demasiado grandes que causen desajustes */
+        object-fit: cover; /* Asegura que las imágenes se recorten de manera uniforme */
+        border-radius: 0.25rem;
     }
 }
 
 
-
 .producto:hover {
     transform: translateY(-5px);
-}
-
-.producto img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 0.25rem;
-    margin-bottom: 1rem;
 }
 
 .producto h3 {
