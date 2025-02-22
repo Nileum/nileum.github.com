@@ -217,28 +217,30 @@ body {
     gap: 1rem;
 }
 
-/* 🔽 CORRECCIÓN: Ajustes para centrar correctamente las tarjetas en móviles 🔽 */
+/* 🔽 CORRECCIÓN: Ajustes para centrar correctamente las tarjetas en móviles y evitar recortes 🔽 */
 @media (max-width: 768px) {
     .catalogo-section {
-        padding: 4rem 0; /* Eliminamos padding lateral para evitar desplazamiento */
+        padding: 4rem 1rem; /* Se agrega un padding a la izquierda para evitar recorte */
     }
 
     .productos-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr)); /* Distribuye uniformemente las 3 columnas */
         gap: 1rem;
-        margin: 0 auto; /* Asegura que la grilla esté centrada */
+        padding-left: 1rem; /* Agrega separación a la izquierda */
         width: 100%;
-        max-width: 95%; /* Limita el ancho para evitar desplazamientos */
-        box-sizing: border-box; /* Evita que padding o bordes desplacen contenido */
-        justify-content: center; /* Alinea el grid en el centro */
+        max-width: 100%;
+        box-sizing: border-box;
+        align-items: stretch; /* Asegura que todas las tarjetas sean del mismo alto */
     }
 
     .producto {
-        width: 100%; /* Evita que las tarjetas sean más anchas de lo permitido */
-        max-width: 90%; /* Se asegura de que no ocupen más espacio del necesario */
+        width: 100%;
+        max-width: 100%; /* Evita que se salgan del contenedor */
+        box-sizing: border-box;
     }
 }
+
 
 
 .producto:hover {
