@@ -26,7 +26,7 @@ body {
 /* Header */
 .header {
     background-color: var(--color-primary);
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -50,21 +50,40 @@ body {
     z-index: 1001;
 }
 
-.navbar ul {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: var(--color-primary);
-    padding: 1rem 0;
-    z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* Menú de Navegación para Escritorio */
+@media (min-width: 769px) {
+    .navbar ul {
+        display: flex;
+        gap: 2rem;
+        position: static;
+        flex-direction: row;
+        padding: 0;
+        list-style: none;
+        box-shadow: none;
+    }
 }
 
-.navbar ul.active {
-    display: flex;
+/* Menú de Navegación para Móvil */
+@media (max-width: 768px) {
+    .navbar ul {
+        display: none; /* Oculto por defecto */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-primary);
+        padding: 1rem 0;
+        z-index: 1000;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        list-style: none;
+    }
+    
+    .navbar ul.active {
+        display: flex;
+        max-height: 500px;
+        overflow: hidden;
+    }
 }
 
 .navbar ul li {
@@ -83,35 +102,8 @@ body {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-@media (max-width: 768px) {
-    .header-container {
-        padding: 0.5rem 1rem;
-        position: relative;
-    }
-    
-    .menu-icon {
-        display: block;
-    }
-    
-    .navbar ul {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease-out;
-    }
-    
-    .navbar ul.active {
-        max-height: 500px;
-    }
-}
-
 .logo img {
     height: 60px;
-}
-
-.navbar ul {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
 }
 
 .navbar a {
@@ -207,6 +199,7 @@ body {
 /* Sección Catálogo */
 .catalogo-section {
     padding: 4rem 2rem;
+    text-align: center; /* Centra los textos principales */
 }
 
 .filtros {
@@ -240,7 +233,8 @@ body {
 
 @media (max-width: 768px) {
     .productos-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        /* Forzar 3 columnas en móvil */
+        grid-template-columns: repeat(3, 1fr);
         gap: 1rem;
     }
 }
@@ -278,6 +272,7 @@ body {
     margin-bottom: 1rem;
 }
 
+/* Botón de WhatsApp y Contacto */
 .whatsapp-btn {
     display: inline-flex;
     align-items: center;
@@ -305,6 +300,7 @@ body {
 .ofertas-section {
     padding: 4rem 2rem;
     background-color: var(--color-primary);
+    text-align: center;
 }
 
 .ofertas-grid {
@@ -334,6 +330,7 @@ body {
 /* Sección Reseñas */
 .reseñas-section {
     padding: 4rem 2rem;
+    text-align: center;
 }
 
 .reseñas-container {
@@ -367,6 +364,7 @@ body {
 .contacto-section {
     padding: 4rem 2rem;
     background-color: var(--color-primary);
+    text-align: center;
 }
 
 .contacto-container {
@@ -495,5 +493,10 @@ body {
 
     .carousel-content p {
         font-size: 1rem;
+    }
+    
+    /* Refuerzo para centrar textos e íconos */
+    h1, h2, h3, p {
+        text-align: center;
     }
 }
