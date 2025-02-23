@@ -189,11 +189,9 @@ body {
     max-width: 1400px;
 }
 
-h2{
-    padding-left: 42%;
-    margin-top: 0.2px;
+.catalogo-title {
+    text-align: center;
 }
-
 .filtros {
     display: flex;
     justify-content: center;
