@@ -249,7 +249,7 @@ body {
         }
         .producto .whatsapp-btn {
             margin-top: auto; /* Hace que el botón quede siempre alineado en la parte inferior */
-            width: 100%; /* Opcional: Asegura que todos los botones tengan el mismo ancho */
+            width: 70%; /* Opcional: Asegura que todos los botones tengan el mismo ancho */
             text-align: center;
         }
     }
