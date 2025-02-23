@@ -222,28 +222,36 @@ body {
         padding: 4rem 1rem; /* Agrega espacio lateral para evitar recortes */
     }
 
-    .productos-grid {
-        display: grid;
-        /* 2 columnas en móviles, cada columna con ancho mínimo de 110px y flexible hasta ocupar todo el espacio */
-        grid-template-columns: repeat(2, minmax(110px, 1fr));
-        gap: 0.5rem;
-        padding: 0 1rem; /* Espacio en los lados para evitar que queden pegadas */
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-        align-items: stretch; /* Asegura que todas las tarjetas tengan la misma altura */
-    }
+    @media (max-width: 768px) {
+        .productos-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(110px, 1fr)); /* Columnas iguales */
+            gap: 0.5rem;
+            padding: 0 1rem;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            align-items: stretch;
+        }
 
-    .producto {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-        padding: 0.5rem; /* Reduce el espacio interno de cada tarjeta */
-        font-size: 0.8rem; /* Ajusta el tamaño del texto */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        transition: transform 0.3s ease;
+  
+        .producto {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Distribuye el espacio para alinear los botones */
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            padding: 0.5rem;
+            font-size: 0.8rem;
+            align-items: center;
+            min-height: 250px; /* Ajusta esto según sea necesario */
+        }
+        .producto .whatsapp-btn {
+            margin-top: auto; /* Hace que el botón quede siempre alineado en la parte inferior */
+            width: 100%; /* Opcional: Asegura que todos los botones tengan el mismo ancho */
+            text-align: center;
+        }
     }
 
     .producto img {
