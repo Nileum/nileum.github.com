@@ -132,7 +132,7 @@ body {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: var(--color-carruselbg);
+    background-color: var(--color-bg);
     opacity: 0;
     transition: opacity 1s ease;
 }
