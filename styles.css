@@ -132,7 +132,7 @@ body {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: var(--color-bg);
+    background-color: var(--color-bg));
     opacity: 0;
     transition: opacity 1s ease;
 }
@@ -189,9 +189,6 @@ body {
     max-width: 1400px;
 }
 
-.catalogo-title {
-    text-align: center;
-}
 .filtros {
     display: flex;
     justify-content: center;
