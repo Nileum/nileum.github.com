@@ -222,19 +222,15 @@ h2{
 
 .productos-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajuste dinámico en función del espacio */
     gap: 1rem;
+    padding: 0 1rem;
 }
-
-@media (max-width: 768px) {
-    .catalogo-section {
-        padding: 4rem 1rem; /* Agrega espacio lateral para evitar recortes */
-    }
 
     @media (max-width: 768px) {
         .productos-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(110px, 1fr)); /* Columnas iguales */
+            grid-template-columns: repeat(2, minmax(90px, 1fr)); /* Columnas iguales */
             gap: 0.5rem;
             padding: 0 1rem;
             width: 100%;
@@ -243,48 +239,70 @@ h2{
             align-items: stretch;
         }
 
-  
+        .producto h3, .producto p {
+            font-size: 0.875rem; /* Reducir el tamaño del texto en móvil */
+        }
+
         .producto {
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* Distribuye el espacio para alinear los botones */
-            width: 100%;
-            max-width: 100%;
-            box-sizing: border-box;
-            padding: 0.5rem;
-            font-size: 0.8rem;
+            justify-content: space-between;
             align-items: center;
-            min-height: 250px; /* Ajusta esto según sea necesario */
+            padding: 1rem;
+            background-color:var(--color-card);
+            border-radius: 0.5rem;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         }
+        
         .producto .whatsapp-btn {
             margin-top: auto; /* Hace que el botón quede siempre alineado en la parte inferior */
             width: 70%; /* Opcional: Asegura que todos los botones tengan el mismo ancho */
             text-align: center;
         }
+        .producto img {
+            width: 90%; /* Aumenta el tamaño de la imagen sin afectar la tarjeta */
+            max-height: 180px; /* Puedes ajustar el valor para hacerlo más grande si lo prefieres */
+        }
+        
     }
 
     .producto img {
-        width: 100%;
+        max-width: 100%;
         height: auto;
-        max-height: 100px; /* Evita que las imágenes sean demasiado grandes */
-        object-fit: cover;
-        border-radius: 0.25rem;
+        max-height: 200px;
+        object-fit: contain;
+        border-radius: 10px; /* Border radius para ambas vistas */
     }
+    
 
     .producto:hover {
         transform: translateY(-5px);
     }
-}
 
 
-.producto h3 {
-    margin-bottom: 0.5rem;
-    color: var(--color-secondary);
-}
 
-.producto p {
-    margin-bottom: 1rem;
-}
+    .producto h3, .producto p, .producto .whatsapp-btn {
+        margin: 0.5rem 0;
+        text-align: center;
+    }
+    @media (min-width: 768px) {
+        .productos-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Ajusta el número de columnas a las que necesites */
+            gap: 1rem;
+        }
+    
+        .producto {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%; /* Asegurar que todas las tarjetas tengan la misma altura */
+        }
+    
+        .whatsapp-btn {
+            margin-top: auto; /* Empujar el botón hacia la parte inferior en vista de escritorio */
+        }
+    }
 
 .whatsapp-btn {
     display: inline-flex;
