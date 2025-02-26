@@ -7,7 +7,7 @@
     --color-bg: #121212;
     --color-card: #1e1e1e;
     --color-border: #333333;
-    --color-carruselbg: #ffffff
+    --color-carruselbg: #ffffff;
 }
 
 html {
@@ -21,7 +21,6 @@ body {
     background-color: var(--color-bg);
     line-height: 1.6;
 }
-
 
 /* Header */
 .header {
@@ -69,7 +68,6 @@ body {
     transform: scale(0.95);
 }
 
-
 .navbar ul {
     list-style: none;
     display: flex;
@@ -94,7 +92,6 @@ body {
         display: flex;
     }
 }
-
 
 .navbar a {
     color: var(--color-text);
@@ -137,8 +134,6 @@ body {
     opacity: 0;
     transition: opacity 1s ease;
 }
-
-
 
 .carousel-item.active {
     opacity: 1;
@@ -191,7 +186,7 @@ body {
     max-width: 1400px;
 }
 
-h2{
+h2 {
     text-align: center;
     margin-top: -15px;
     font-size: xx-large;
@@ -222,90 +217,87 @@ h2{
 
 .productos-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajuste dinámico en función del espacio */
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Ajuste dinámico en función del espacio */
+    gap: 1rem; /* Increased gap for desktop */
     padding: 0 1rem;
 }
 
-    @media (max-width: 768px) {
-        .productos-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(90px, 1fr)); /* Columnas iguales */
-            gap: 0.5rem;
-            padding: 0 1rem;
-            width: 100%;
-            max-width: 100%;
-            box-sizing: border-box;
-            align-items: stretch;
-        }
-
-        .producto h3, .producto p {
-            font-size: 0.875rem; /* Reducir el tamaño del texto en móvil */
-        }
-
-        .producto {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem;
-            background-color:var(--color-card);
-            border-radius: 0.5rem;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        }
-        
-        .producto .whatsapp-btn {
-            margin-top: auto; /* Hace que el botón quede siempre alineado en la parte inferior */
-            width: 70%; /* Opcional: Asegura que todos los botones tengan el mismo ancho */
-            text-align: center;
-        }
-        .producto img {
-            width: 90%; /* Aumenta el tamaño de la imagen sin afectar la tarjeta */
-            max-height: 180px; /* Puedes ajustar el valor para hacerlo más grande si lo prefieres */
-        }
-        
+@media (max-width: 768px) {
+    .productos-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(100px, 1fr)); /* Columnas iguales */
+        gap: 2rem; /* Increased gap for mobile */
+        padding: 0 1rem;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        align-items: stretch;
     }
 
-    .producto img {
-        max-width: 100%;
-        height: auto;
-        max-height: 200px;
-        object-fit: contain;
-        border-radius: 10px; /* Border radius para ambas vistas */
+    .producto h3, .producto p {
+        font-size: 0.875rem; /* Reducir el tamaño del texto en móvil */
+    }
+
+    .producto {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        background-color: var(--color-card);
+        border-radius: 0.5rem;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     }
     
-
-    .producto:hover {
-        transform: translateY(-5px);
-    }
-
-
-
-    .producto h3, .producto p, .producto .whatsapp-btn {
-        margin: 0.5rem 0;
+    .producto .whatsapp-btn {
+        margin-top: auto; /* Hace que el botón quede siempre alineado en la parte inferior */
+        width: 50%; /* Opcional: Asegura que todos los botones tengan el mismo ancho */
         text-align: center;
     }
-    @media (min-width: 768px) {
-        .productos-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr); /* Ajusta el número de columnas a las que necesites */
-            gap: 1rem;
-        }
-    
-        .producto {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%; /* Asegurar que todas las tarjetas tengan la misma altura */
-        }
-    
-        .whatsapp-btn {
-            margin-top: auto; /* Empujar el botón hacia la parte inferior en vista de escritorio */
-        }
+    .producto img {
+        width: 90%; /* Aumenta el tamaño de la imagen sin afectar la tarjeta */
+        max-height: 180px; /* Puedes ajustar el valor para hacerlo más grande si lo prefieres */
+    }
+}
+
+.producto img {
+    max-width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: contain;
+    border-radius: 10px; /* Border radius para ambas vistas */
+}
+
+.producto:hover {
+    transform: translateY(-5px);
+}
+
+.producto h3, .producto p, .producto .whatsapp-btn {
+    margin: 0.5rem 0;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .productos-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* Ajusta el número de columnas a las que necesites */
+        gap: 1.5rem; /* Increased gap for desktop */
     }
 
+    .producto {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%; /* Asegurar que todas las tarjetas tengan la misma altura */
+    }
+
+    .whatsapp-btn {
+        margin-top: auto; /* Empujar el botón hacia la parte inferior en vista de escritorio */
+    }
+}
+
 .whatsapp-btn {
-    display: inline-flex;
+    display: block;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
@@ -315,7 +307,7 @@ h2{
     border-radius: 0.25rem;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    min-width: 120px;
+    min-width: 80px;
     font-size: 0.9rem;
     font-weight: bold;
     border: none;
