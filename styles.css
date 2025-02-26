@@ -236,28 +236,32 @@ h2 {
 
     .producto h3, .producto p {
         font-size: 0.875rem; /* Reducir el tamaño del texto en móvil */
+        width: 100%;
+        height: auto;
+        object-fit: cover; /* Asegura que la imagen mantenga su proporción */
     }
 
     .producto {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem;
-        background-color: var(--color-card);
-        border-radius: 0.5rem;
+        align-items: center; /* Alinea los elementos al centro */
+        justify-content: space-between; /* Distribuye el espacio de manera uniforme */
+        text-align: center; /* Centra el texto dentro de la tarjeta */
+        height: 100%;
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     }
     
     .producto .whatsapp-btn {
-        margin-top: auto; /* Hace que el botón quede siempre alineado en la parte inferior */
-        width: 50%; /* Opcional: Asegura que todos los botones tengan el mismo ancho */
-        text-align: center;
+        margin-top: auto;
+        width: 70%;
+        display: flex;
+        justify-content: center; /* Centra el botón horizontalmente */
     }
-    .producto img {
-        width: 90%; /* Aumenta el tamaño de la imagen sin afectar la tarjeta */
-        max-height: 180px; /* Puedes ajustar el valor para hacerlo más grande si lo prefieres */
-    }
+    .producto-imagen {
+        width: 100%;
+        height: auto;
+        object-fit: cover; /* Asegura que la imagen mantenga su proporción */
+      }
 }
 
 .producto img {
@@ -287,12 +291,17 @@ h2 {
     .producto {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        height: 100%; /* Asegurar que todas las tarjetas tengan la misma altura */
+        align-items: center; /* Alinea los elementos al centro */
+        justify-content: space-between; /* Distribuye el espacio de manera uniforme */
+        text-align: center; /* Centra el texto dentro de la tarjeta */
+        height: 100%;
     }
 
     .whatsapp-btn {
-        margin-top: auto; /* Empujar el botón hacia la parte inferior en vista de escritorio */
+        margin-top: auto;
+        width: 85%;
+        display: flex;
+        justify-content: center; /* Centra el botón horizontalmente */
     }
 }
 
@@ -410,6 +419,7 @@ h2 {
     gap: 1rem;
 }
 
+
 .contacto-info i {
     margin-right: 0.5rem;
 }
@@ -435,18 +445,42 @@ h2 {
 .social-btn:hover {
     transform: scale(1.1);
 }
-
-.social-btn.facebook {
-    background-color: #1877f2;
+.redes-sociales a {
+    display: inline-flex; /* Flexbox para centrar el contenido */
+    align-items: center;  /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+    width: 40px;  /* Asegura el tamaño fijo del botón */
+    height: 40px; /* Asegura el tamaño fijo del botón */
+    border-radius: 50%;  /* Botones redondos */
+    background-color: #ddd;  /* Color de fondo del botón */
+    color: #fff; /* Color del ícono */
+    text-decoration: none; /* Quitar subrayado */
+    font-size: 1.5rem; /* Ajusta el tamaño del ícono */
+    transition: background-color 0.3s ease; /* Efecto de transición */
+    line-height: 0;  /* Eliminar espacio extra vertical causado por los iconos */
 }
 
-.social-btn.whatsapp {
-    background-color: var(--color-accent);
+.redes-sociales a i {
+    font-size: 1.5rem;  /* Asegura que el tamaño del icono sea adecuado */
+    margin: 0;  /* Eliminar márgenes innecesarios */
 }
 
-.social-btn.instagram {
-    background-color: #E1306C;
+.redes-sociales a.facebook {
+    background-color: #3b5998; /* Color específico para Facebook */
 }
+
+.redes-sociales a.whatsapp {
+    background-color: #1c965d; /* Color específico para WhatsApp */
+}
+
+.redes-sociales a.instagram {
+    background-color: #E4405F; /* Color específico para Instagram */
+}
+
+.redes-sociales a:hover {
+    opacity: 0.8; /* Efecto hover al pasar el cursor */
+}
+
 
 .contacto-form {
     display: flex;
@@ -528,3 +562,54 @@ h2 {
         font-size: 1rem;
     }
 }
+/* Estilos del modal */
+.modal {
+    display: none; /* Inicialmente oculto */
+    position: fixed;
+    z-index: 999; /* Asegura que esté por encima de otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro semitransparente */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.modal img {
+    width: 80%;
+    max-height: 400px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border-radius: 30px !important;
+}
+
+.modal_h {
+    color: #121212;
+}
+.modal_p {
+    color: #121212;
+}
+
+.modal .close-btn {
+    background-color: #ff4757;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+

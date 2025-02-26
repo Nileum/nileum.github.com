@@ -1,3 +1,6 @@
+console.log("Archivo script.js cargado correctamente");
+
+
 // Datos de reseñas
 const reseñas = [
     {
@@ -140,5 +143,46 @@ document.addEventListener('DOMContentLoaded', () => {
             navMenu.classList.remove('active');
         }
     });
+   
+});
 
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("JavaScript cargado y DOM listo");
+
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDescription = document.getElementById('modal-description');
+    const closeBtn = document.querySelector('.close-btn');
+
+    // Abrir modal al hacer clic en la imagen de un producto
+    document.querySelectorAll('.producto img').forEach(productoImg => {
+        productoImg.addEventListener('click', function() {
+            console.log("Producto clicado:", this); // Esto mostrará en consola cuando se haga clic en una imagen
+            const producto = this.closest('.producto');
+            const title = producto.querySelector('h3').textContent;
+            const description = producto.querySelector('p').textContent;
+            const imageSrc = this.src;
+
+            modalImg.src = imageSrc;
+            modalTitle.textContent = title;
+            modalDescription.textContent = description;
+
+            modal.style.display = 'flex'; // Mostrar el modal
+        });
+    });
+
+    // Cerrar modal al hacer clic en el botón "Cerrar"
+    closeBtn.addEventListener('click', () => {
+        console.log("Cerrar modal"); // Mensaje para ver si se dispara el evento de cerrar
+        modal.style.display = 'none';
+    });
+
+    // Cerrar modal al hacer clic fuera del contenido
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            console.log("Cerrar modal desde fuera del contenido"); // Mensaje para ver si detecta clic fuera del contenido
+            modal.style.display = 'none';
+        }
+    });
 });
