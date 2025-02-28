@@ -1,6 +1,5 @@
 console.log("Archivo script.js cargado correctamente");
 
-
 // Datos de reseñas
 const reseñas = [
     {
@@ -13,7 +12,7 @@ const reseñas = [
     // Más reseñas...
 ];
 
-
+// Generar reseñas dinámicamente
 function generarReseñas() {
     const reseñasContainer = document.querySelector('.reseñas-container');
     reseñasContainer.innerHTML = reseñas.map(reseña => `
@@ -27,7 +26,6 @@ function generarReseñas() {
         </div>
     `).join('');
 }
-
 
 // Funcionalidad del carrusel
 let currentSlide = 0;
@@ -60,20 +58,6 @@ function stopAutoSlide() {
     clearInterval(autoSlideInterval);
 }
 
-function generarReseñas() {
-    const reseñasContainer = document.querySelector('.reseñas-container');
-    reseñasContainer.innerHTML = reseñas.map(reseña => `
-        <div class="reseña">
-            <div class="reseña-header">
-                <div class="reseña-autor">${reseña.autor}</div>
-                <div class="reseña-calificacion">${'★'.repeat(reseña.calificacion)}${'☆'.repeat(5 - reseña.calificacion)}</div>
-            </div>
-            <div class="reseña-producto">${reseña.producto}</div>
-            <div class="reseña-texto">${reseña.texto}</div>
-        </div>
-    `).join('');
-}
-
 // Filtrado de productos
 function filtrarProductos(categoria) {
     const productos = document.querySelectorAll('.producto');
@@ -88,6 +72,8 @@ function filtrarProductos(categoria) {
 
 // Event Listeners
 document.addEventListener('DOMContentLoaded', () => {
+    console.log("JavaScript cargado y DOM listo");
+
     generarReseñas();
 
     // Configurar menú móvil
@@ -107,12 +93,13 @@ document.addEventListener('DOMContentLoaded', () => {
         nextSlide();
         startAutoSlide();
     });
+
     prevButton.addEventListener('click', () => {
         stopAutoSlide();
         prevSlide();
         startAutoSlide();
     });
-    
+
     // Configurar filtros
     const filtroBtns = document.querySelectorAll('.filtro-btn');
     filtroBtns.forEach(btn => {
@@ -125,7 +112,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Iniciar carrusel automático
     startAutoSlide();
-    // Mostrar primer slide
     showSlide(0);
 
     // Cerrar menú al hacer clic fuera en móviles
@@ -143,46 +129,62 @@ document.addEventListener('DOMContentLoaded', () => {
             navMenu.classList.remove('active');
         }
     });
-   
+
+// Modal de productos
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modal-img');
+const modalTitle = document.getElementById('modal-title');
+const modalDescription = document.getElementById('modal-description');
+const modalColors = document.getElementById('modal-colors'); 
+const closeBtn = document.querySelector('.close-btn');
+
+document.querySelectorAll('.producto img').forEach(productoImg => {
+    productoImg.addEventListener('click', function() {
+        console.log("Producto clicado:", this);
+        const producto = this.closest('.producto');
+
+        // Asegurar que obtenemos el nombre correctamente
+        const title = producto.getAttribute('data-nombre')?.trim() || "Producto sin nombre";
+        const description = producto.getAttribute('data-description')?.trim() || "Descripción no disponible.";
+        const imageSrc = this.src;
+        const colors = producto.getAttribute('data-colores') ? producto.getAttribute('data-colores').split(',') : [];
+
+        modalImg.src = imageSrc;
+        modalTitle.textContent = title;
+        modalDescription.textContent = description;
+
+        // Limpiar y agregar colores al modal
+        modalColors.innerHTML = "";
+        if (colors.length > 0) {
+            colors.forEach(color => {
+                const li = document.createElement("li");
+                li.style.width = "20px";
+                li.style.height = "20px";
+                li.style.borderRadius = "50%";
+                li.style.backgroundColor = color.trim();
+                li.style.display = "inline-block";
+                li.style.margin = "5px";
+                li.style.border = "1px solid #000";
+                modalColors.appendChild(li);
+            });
+        }
+
+        modal.style.display = 'flex'; // Mostrar el modal
+    });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    console.log("JavaScript cargado y DOM listo");
+// Cerrar modal al hacer clic en el botón "Cerrar"
+closeBtn.addEventListener('click', () => {
+    console.log("Cerrar modal");
+    modal.style.display = 'none';
+});
 
-    const modal = document.getElementById('modal');
-    const modalImg = document.getElementById('modal-img');
-    const modalTitle = document.getElementById('modal-title');
-    const modalDescription = document.getElementById('modal-description');
-    const closeBtn = document.querySelector('.close-btn');
-
-    // Abrir modal al hacer clic en la imagen de un producto
-    document.querySelectorAll('.producto img').forEach(productoImg => {
-        productoImg.addEventListener('click', function() {
-            console.log("Producto clicado:", this); // Esto mostrará en consola cuando se haga clic en una imagen
-            const producto = this.closest('.producto');
-            const title = producto.querySelector('h3').textContent;
-            const description = producto.querySelector('p').textContent;
-            const imageSrc = this.src;
-
-            modalImg.src = imageSrc;
-            modalTitle.textContent = title;
-            modalDescription.textContent = description;
-
-            modal.style.display = 'flex'; // Mostrar el modal
-        });
-    });
-
-    // Cerrar modal al hacer clic en el botón "Cerrar"
-    closeBtn.addEventListener('click', () => {
-        console.log("Cerrar modal"); // Mensaje para ver si se dispara el evento de cerrar
+// Cerrar modal al hacer clic fuera del contenido
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        console.log("Cerrar modal desde fuera del contenido");
         modal.style.display = 'none';
-    });
+    }
+});
 
-    // Cerrar modal al hacer clic fuera del contenido
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            console.log("Cerrar modal desde fuera del contenido"); // Mensaje para ver si detecta clic fuera del contenido
-            modal.style.display = 'none';
-        }
-    });
 });
