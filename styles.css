@@ -19,7 +19,7 @@
     --color-secondary: #ff4757;
     --color-accent: #25D366;
     --color-text: #e0e0e0;
-    --color-bg: #121212;
+    --color-bg: rgba(18,18,18,0.5);
     --color-card: #0f0f0f;
     --color-border: #333333;
     --color-carruselbg: #ffffff;
@@ -135,7 +135,7 @@ body {
     position: relative;
     height: 800px;
     overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.399);
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 10px;
 }
 
@@ -321,6 +321,11 @@ h2 {
     margin: 0.5rem 0;
     text-align: center;
 }
+.reseñas-section {
+    padding: 4rem 2rem;
+    font-size: medium;
+}
+
 
 @media (min-width: 768px) {
     .productos-grid {
@@ -381,7 +386,7 @@ h2 {
 /* Sección Ofertas */
 .ofertas-section {
     padding: 4rem 2rem;
-    background-color: var(--color-primary);
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
 }
 
@@ -448,7 +453,7 @@ h2 {
 /* Sección Contacto */
 .contacto-section {
     padding: 4rem 2rem;
-    background-color: var(--color-primary);
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
 }
 
@@ -562,7 +567,7 @@ h2 {
 .footer {
     padding: 2rem;
     text-align: center;
-    background-color: var(--color-primary);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .footer-content {
