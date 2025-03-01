@@ -15,12 +15,12 @@
   }
 
 :root {
-    --color-primary: #1a1a1a;
+    --color-primary: #000000;
     --color-secondary: #ff4757;
     --color-accent: #25D366;
     --color-text: #e0e0e0;
     --color-bg: #121212;
-    --color-card: #1e1e1e;
+    --color-card: #0f0f0f;
     --color-border: #333333;
     --color-carruselbg: #ffffff;
 }
@@ -32,9 +32,16 @@ html {
 body {
     font-size:x-large;
     color: var(--color-text);
-    background-color: var(--color-bg);
+    background-image: url(cat.jfif);
+    background-size: cover; /* Ajusta la imagen para cubrir toda la pantalla */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-attachment: fixed; /* Hace que la imagen se quede fija al hacer scroll */
     line-height: 1.6;
     font-family: "Inconsolata", monospace;
+        
+
+    
 }
 
 /* Header */
@@ -44,6 +51,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
+    border-radius: 10px;
 }
 
 .header-container {
@@ -91,6 +99,9 @@ body {
 
 /* Mobile Styles */
 @media (max-width: 768px) {
+    body {
+        background-image: url(catmov.jpg);
+    }
     .menu-toggle {
         display: block;
     }
@@ -124,7 +135,8 @@ body {
     position: relative;
     height: 800px;
     overflow: hidden;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.399);
+    border-radius: 10px;
 }
 
 .carousel {
@@ -209,6 +221,7 @@ h2 {
     font-size: 40px;
     font-family: 'Dyer Arts and Crafts';
     font-weight: 100;
+ 
 }
 
 .filtros {
@@ -369,6 +382,7 @@ h2 {
 .ofertas-section {
     padding: 4rem 2rem;
     background-color: var(--color-primary);
+    border-radius: 10px;
 }
 
 .ofertas-grid {
@@ -435,6 +449,7 @@ h2 {
 .contacto-section {
     padding: 4rem 2rem;
     background-color: var(--color-primary);
+    border-radius: 10px;
 }
 
 .contacto-container {
@@ -478,7 +493,7 @@ h2 {
     transform: scale(1.1);
 }
 .redes-sociales a {
-    display: inline-flex; /* Flexbox para centrar el contenido */
+    display: flexbox; /* Flexbox para centrar el contenido */
     align-items: center;  /* Centrar verticalmente */
     justify-content: center; /* Centrar horizontalmente */
     width: 40px;  /* Asegura el tamaño fijo del botón */
@@ -553,6 +568,7 @@ h2 {
 .footer-content {
     max-width: 1200px;
     margin: 0 auto;
+    font-size:large;
 }
 
 .footer-links {
@@ -671,12 +687,23 @@ h2 {
         align-items: center;
     }
     
-    #modal-colors li {
-        width: 20px;  /* Tamaño del círculo */
-        height: 20px;
-        border-radius: 50%; /* Lo hace completamente redondo */
-        border: 1px solid #000; /* Añade un borde negro para mejor visibilidad */
+    #modal-colors {
+        list-style: none;
+        padding: 0;
+        display: flexbox;
+        gap: 10px;
+        align-items: center;
     }
+    
+    #modal-colors li {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: inline-block;
+        margin: 5px;
+        background: linear-gradient(135deg, rgba(250, 247, 247, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
+        box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4); /* Sombra para efecto 3D */
+    }    
     
 }
 

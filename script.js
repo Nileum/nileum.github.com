@@ -155,19 +155,25 @@ document.querySelectorAll('.producto img').forEach(productoImg => {
 
         // Limpiar y agregar colores al modal
         modalColors.innerHTML = "";
-        if (colors.length > 0) {
-            colors.forEach(color => {
-                const li = document.createElement("li");
-                li.style.width = "20px";
-                li.style.height = "20px";
-                li.style.borderRadius = "50%";
-                li.style.backgroundColor = color.trim();
-                li.style.display = "inline-block";
-                li.style.margin = "5px";
-                li.style.border = "1px solid #000";
-                modalColors.appendChild(li);
-            });
-        }
+if (colors.length > 0) {
+    colors.forEach(color => {
+        const li = document.createElement("li");
+        li.style.width = "20px";
+        li.style.height = "20px";
+        li.style.borderRadius = "50%";
+
+        // Aplicar gradiente sin bordes
+        li.style.background = `linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, ${color.trim()} 10%, rgba(0, 0, 0, 0.2) 150%)`;
+
+        li.style.display = "inline-block";
+        li.style.margin = "5px";
+
+        // Agregar sombra para un efecto 3D más realista
+        li.style.boxShadow = "3px 3px 6px rgba(0, 0, 0, 0.4)";
+
+        modalColors.appendChild(li);
+    });
+}
 
         modal.style.display = 'flex'; // Mostrar el modal
     });
