@@ -117,20 +117,15 @@ body {
     .navbar ul.active {
         display: flex;
     }
-    .header{
-        width: 80px; /* Ancho del triángulo */
-    height: 140px; /* Altura del triángulo */
-    background: black; /* Color del triángulo */
-    position: absolute;
+    .header {
+    width: 100%;
+    background: black;
+    padding: 0.5rem 1.5rem;
+    position: fixed;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    clip-path: polygon(50% 100%, 0 0, 100% 0); /* Triángulo invertido */
-    padding: 0.2rem 2rem;
-    position: sticky;
-    border-radius: 10px;
-  
-    }
+    left: 0;
+    z-index: 1000;
+}
 }
 
 .navbar a {
