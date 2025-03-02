@@ -106,7 +106,7 @@ body {
         display: block;
     }
     
-    .navbar ul {
+     .navbar ul {
         display: none;
         flex-direction: column;
         width: 100%;
@@ -127,6 +127,7 @@ body {
         width: auto;
         height: auto;
         padding-bottom: 15px;
+        align-items: center;
     }
 }
 
