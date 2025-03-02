@@ -118,14 +118,16 @@ body {
         display: flex;
     }
     .header {
-    width: 100%;
-    background: black;
-    padding: 0.5rem 1.5rem;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-}
+        background-color: var(--color-primary);
+        padding: 0.2rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        border-radius: 10px;
+        width: auto;
+        height: auto;
+        padding-bottom: 15px;
+    }
 }
 
 .navbar a {
