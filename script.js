@@ -8,7 +8,7 @@ const reseñas = [
         calificacion: 5,
         producto: "Camiseta Gótica",
         texto: "¡Me encanta esta camiseta! El diseño es increíble y la calidad es excelente."
-    },
+  },
     // Más reseñas...
 ];
 
@@ -193,4 +193,20 @@ modal.addEventListener('click', (e) => {
     }
 });
 
+});
+document.addEventListener("DOMContentLoaded", function () {
+    const audio = document.getElementById("background-music");
+    const button = document.getElementById("music-toggle");
+
+    audio.volume = 0.6; // 🔊 Volumen bajo
+
+    button.addEventListener("click", function () {
+        if (audio.paused) {
+            audio.play();
+            button.textContent = "🔇 Desactivar Música";
+        } else {
+            audio.pause();
+            button.textContent = "🎵 Activar Música";
+        }
+    });
 });
